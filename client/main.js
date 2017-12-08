@@ -3,10 +3,7 @@
  * browsers to distinguish between a single and a double click
  * More details: http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away
  */
-import injectTapEventPlugin from 'react-tap-event-plugin'
 
-// Import application route definitions
 import '../imports/ui/home/routes'
-import '../imports/ui/examples/index' // Rutas internas
+import '../imports/ui/examples/index'
 
-injectTapEventPlugin()

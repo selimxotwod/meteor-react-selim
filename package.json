@@ -1,5 +1,5 @@
 {
-  "name": "meteor-react-example",
+  "name": "meteor-react-selim",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -21,7 +21,7 @@
   },
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Joaquín Gumucio L. <jjgumucio@gmail.com>",
+  "author": "Sélim ",
   "license": "MIT",
-  "description": "Example use of Meteor with React, FlowRouter & material-ui"
+  "description": "CRUD Meteor/React"
 }

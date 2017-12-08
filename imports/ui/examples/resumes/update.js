@@ -3,12 +3,10 @@ import { createContainer } from 'meteor/react-meteor-data'
 import {FlowRouter} from 'meteor/kadira:flow-router'
 import React from 'react'
 import Paper from 'material-ui/Paper'
-import RaisedButton from 'material-ui/RaisedButton'
 import Snackbar from 'material-ui/Snackbar'
 
 import Resumes from '../../../api/collections/resumes'
 
-// Define the props (propeties/params) that this component will need/use
 const propTypes = {
   resume: React.PropTypes.object,
   isLoading: React.PropTypes.bool
@@ -18,24 +16,18 @@ const defaultProps = {
 
 }
 
-// Define the component as a Class, extending React.Component
 class Update extends React.Component {
 
-  // Class constructor
   constructor (props) {
     super(props)
-    // Set the components initial state
     this.state = {
       saveMessage: false
     }
-    // Bind "this" object (reference to the component itself) to the components methods
     this.submitForm = this.submitForm.bind(this)
     this.deleteResume = this.deleteResume.bind(this)
   }
 
-  // Define methods for this class
   submitForm () {
-    // Here we do a "direct update" from the client instead of using a method
     const inputValues = {
       nom: this.refs.nom.value,
       classe: this.refs.classe.value,
@@ -61,12 +53,8 @@ class Update extends React.Component {
   }
 
 
-  // The render method is the only required one. It must return classic DOM hierachy
   render () {
-    // If the prop "resume" is not loaded yet, we can show a Loading component for example
-    if (this.props.isLoading) return (<div>Loading...</div>)
     return (
-      // We are using Material-ui components: http://www.material-ui.com/
       <Paper style={{padding: 20, marginBottom: 10}}>
         <h1>Update Resume</h1>
         <form>
@@ -84,24 +72,36 @@ class Update extends React.Component {
           </p>
           <p>
             <b>Note:</b>
-            <textarea label='note' ref='note' rows='5' cols='50' defaultValue={this.props.resume.note}></textarea>
+            <select ref="note" >
+              <option value="na" selected>NA</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
           </p>
         </form>
         <button
+            className="button-modify"
           label='Changer'
-          onClick={this.submitForm}>Update</button>
-        <RaisedButton
-          style={{marginLeft: 20}}
-          secondary
-          label='Supprimer'
-          onClick={this.deleteResume} />
-        <RaisedButton
-          style={{marginLeft: 20}}
-          label='Retour'
-          onClick={() => FlowRouter.go('list')} />
-
+          onClick={this.submitForm}>Modifier</button>
+        <button
+            className="button-delete"
+            label='Supprimer'
+            onClick={this.deleteResume}>Supprimer</button>
+        <button
+            className="button-back"
+            label='Retour'
+            onClick={() => FlowRouter.go('list')}>Retour</button>
         <Snackbar
-          message='Resume updated successfully!'
+          message='Élève mis à jour!'
           open={this.state.saveMessage}
           autoHideDuration={3000} />
       </Paper>
@@ -112,13 +112,10 @@ class Update extends React.Component {
 Update.propTypes = propTypes
 Update.defaultProps = defaultProps
 
-// El componente Update es "inteligente", usamos la función 'createContainer' para
-// obtener los datos desde el server. Nos suscribimos a las publicaciones necesarias,
-// hacemos querys y retornamos.
-// La función inyecta los datos como 'props' al componente Update
+
 export default createContainer(({resumeId}) => {
   const handler = Meteor.subscribe('updateResume', resumeId)
-  const isLoading = !handler.ready() // Returns a boolean
+  const isLoading = !handler.ready()
   const resume = Resumes.findOne(resumeId)
   return { resume, isLoading }
 }, Update)

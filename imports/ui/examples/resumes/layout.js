@@ -1,9 +1,7 @@
 import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-// Define the props (properties/params) that this component will need/use
 const propTypes = {
-  // Prop validation (it's not enforced)
   content: React.PropTypes.func.isRequired
 }
 

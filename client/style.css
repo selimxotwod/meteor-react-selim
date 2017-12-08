@@ -1,0 +1,139 @@
+h3{
+    font-size: 50px;
+    font-family: 'Roboto';
+    margin-bottom: 20px;
+}
+
+
+h4{
+    font-size: 20px;
+}
+
+.button-add{
+    height: 35px;
+    font-weight: 600;
+    padding: 0 40px;
+    background-color: #EC3063;
+    color: #F1F1F3;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: none;
+    cursor: pointer;
+    border-color: transparent;
+    margin-right: 40px;
+    outline: none;
+    margin-top: 40px;
+
+}
+
+.button-modify{
+    height: 35px;
+    padding: 0 20px;
+    font-weight: 600;
+    background-color: #F1F1F3;
+    color: #EC3063;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: none;
+    cursor: pointer;
+    border-color: transparent;
+    margin-right: 40px;
+    outline: none;
+
+
+}
+
+.button-delete{
+    height: 35px;
+    padding: 0 20px;
+    background-color: #F1F1F3;
+    color: #EC3063;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: none;
+    cursor: pointer;
+    border-color: transparent;
+    margin-right: 40px;
+    outline: none;
+
+}
+
+
+.button-back{
+    height: 35px;
+    padding: 0 20px;
+    background-color: #F1F1F3;
+    color: #EC3063;
+    border: transparent;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: none;
+    cursor: pointer;
+    margin-right: 40px;
+    outline: none;
+
+}
+
+.paper-classe{
+    box-shadow: none !important;
+}
+
+.paper-inner{
+    box-shadow: none !important;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+
+p{
+    font-weight: 300 !important;
+}
+b{
+    font-weight: 400 !important;
+}
+
+.home-div{
+    padding:0 40px;
+}
+
+.link-home{
+    font-size: 14px;
+    font-family: 'Roboto';
+    padding: 15px 20px;
+    text-decoration: none;
+    background-color: #F1F1F3;
+    color: #EC3063;
+    border: transparent;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: none;
+    cursor: pointer;
+    margin-right: 40px;
+    outline: none;
+}
+
+input[type=text]{
+    border-radius: 5px;
+    background-color: #F1F1F3;
+    color: #000;
+    border: transparent;
+    height: 30px;
+    outline: none;
+    padding-left: 15px;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+
+select{
+    border-radius: 5px;
+    background-color: #F1F1F3;
+    color: #000;
+    border: transparent;
+    height: 30px;
+    outline: none;
+    padding-left: 15px;
+    margin-left: 15px;
+    font-size: 16px;
+}

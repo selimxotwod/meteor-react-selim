@@ -1,38 +1,20 @@
-/**
- * Compenent for creating a new Resume
- */
-
 import { Meteor } from 'meteor/meteor'
 import React from 'react'
 import {FlowRouter} from 'meteor/kadira:flow-router'
 import Paper from 'material-ui/Paper'
-import RaisedButton from 'material-ui/RaisedButton'
 import Snackbar from 'material-ui/Snackbar'
 
 export default class Create extends React.Component {
 
   constructor (props) {
     super(props)
-    /**
-     * The state object is used to keep track of the component state.
-     * On state you can save anything. Use it to register event changes, etc.
-     */
     this.state = {
-      // saveMessage will be used to display a material-ui Snackbar component
       saveMessage: false
     }
-    /**
-     * We pass this component as "this" to the submitForm method so that the method
-    * can access the component properties and other methods
-     */
     this.submitForm = this.submitForm.bind(this)
   }
 
   submitForm () {
-    /**
-     * We call a method to save the new Resume to de DB. We could also just
-     * call the "collection.insert" method directly here.
-     */
     const inputValues = {
       nom: this.refs.nom.value,
       classe: this.refs.classe.value,
@@ -43,7 +25,6 @@ export default class Create extends React.Component {
         console.log(error)
       }
 
-      // Update the saveMessage key on the components state object, to show the Snackbar
       this.setState({saveMessage: true})
     })
   }
@@ -51,7 +32,7 @@ export default class Create extends React.Component {
   render () {
     return (
       <Paper style={{padding: 20}}>
-        <h1>Create Resume</h1>
+        <h1>Ajouter un élève</h1>
         <form>
           <p><b>Nom:</b> <input label='Nom' type='text' ref='nom' /></p>
           <p><b>Classe:</b>
@@ -61,20 +42,34 @@ export default class Create extends React.Component {
                 <option value="WEB 3">WEB 3</option>
             </select>
           </p>
-          <p><b>Note:</b> <textarea label='note' ref='note' rows='5' cols='50'></textarea></p>
+          <p><b>Note:</b>
+            <select ref="note" >
+              <option value="na" selected>NA</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </p>
         </form>
-        <RaisedButton
-          primary
-          label='guardar'
-          onClick={this.submitForm} />
-        <RaisedButton
-          style={{marginLeft: 20}}
-          secondary
-          label='volver'
-          onClick={() => FlowRouter.go('list')} />
+          <button
+              className="button-add"
+              label='Créer'
+              onClick={this.submitForm}>Créer</button>
+          <button
+              className="button-back"
+              label='Retour'
+              onClick={() => FlowRouter.go('list')} >Retour</button>
 
         <Snackbar
-          message='Resume created successfully!'
+          message='Élève ajouté !'
           open={this.state.saveMessage}
           autoHideDuration={3000} />
       </Paper>
